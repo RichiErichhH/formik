@@ -5,6 +5,7 @@ import { Validationschema } from './Validationschema';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {auth } from './Firbaseconfig';
 import * as yup from 'yup';
+import { Link , useNavigate } from 'react-router-dom';
 const initialValues={
     name:"",
     email:"", 
@@ -13,6 +14,7 @@ const initialValues={
 }
 
 export default function Formm(){
+    const navigate = useNavigate();
     const { handleSubmit , values ,handleChange ,handleBlur , errors ,touched } = useFormik({
         initialValues : initialValues,
         validationSchema : yup.object(Validationschema),
@@ -23,6 +25,7 @@ export default function Formm(){
                 console.log(err);
             })
             alert(`Name: ${values.name} \nEmail: ${values.email} \nPassword: ${values.password}`);
+            navigate("/signin");
             action.resetForm();
         }
     });
@@ -58,9 +61,9 @@ export default function Formm(){
                 {errors.cpassword && touched.cpassword ?  <p >{errors.cpassword}</p>:null }
                 <br/>
 
-                <button type="submit">Submit</button>
+                <button type="submit" ><Link to="/signin">Submit</Link></button>
             </form>
-            <p>Already have an account?<a href='Signin.js'>Sign In</a></p>
+            <p>Already have an account?<Link to="/signin">SignIn</Link></p>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { auth }from './Firbaseconfig';
 import  * as yup from "yup";
 import { signInWithEmailAndPassword,signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
     email : "",
@@ -13,6 +14,7 @@ const initialValues = {
 
 
 export default function Signin(){
+  const nevigate= useNavigate();
     const{ handleSubmit , values, handleChange , handleBlur , errors , touched} =useFormik({
         initialValues : initialValues,
         validationSchema: yup.object(Validation),
@@ -23,9 +25,11 @@ export default function Signin(){
             //   alert("successfully signed in");
               console.log(values.email);
               
+              
             } catch (error) {
               console.error('Sign-in error:', error.message);
             }
+            nevigate("./home");
             action.resetForm();
           },
     })
