@@ -6,7 +6,6 @@ import * as yup from 'yup';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import img7 from './image/img7.jpg';
-import {  ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const initialValues = {
@@ -15,7 +14,6 @@ const initialValues = {
 };
 
 export default function Signin() {
-    const notify = () => {toast("SignIn Successfully");}
 
   const navigate = useNavigate();
 
@@ -25,7 +23,6 @@ export default function Signin() {
     onSubmit: async (values, action) => {
       try {
         await signInWithEmailAndPassword(auth, values.email, values.password);
-        notify();
         action.resetForm();
         navigate('/signin/home'); 
       } catch (error) {
@@ -64,14 +61,6 @@ export default function Signin() {
       <div className="right_signin">
         <img src={img7} alt="Right Signin" />
       </div>
-      <ToastContainer 
-        position="top-center"
-        autoClose={3000}
-        pauseOnHover
-        draggable
-        closeOnClick
-        hideProgressBar={true}
-        />
     </div>
   );
 }

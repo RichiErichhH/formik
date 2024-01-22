@@ -43,8 +43,13 @@ export default function Formm() {
     });
 
     const notify = () => {
-        toast(`Name: ${values.name} \nEmail: ${values.email} \nPassword: ${values.password}`);
-      };
+      if (values && values.name && values.email && values.password) {
+          toast(`Name: ${values.name} \nEmail: ${values.email} \nPassword: ${values.password}`);
+      } else {
+          toast("Registration successful!");
+      }
+  };
+  
 
 
   return (
@@ -115,7 +120,7 @@ export default function Formm() {
                 <br />
                 </div>
                 <button type="submit" className="submit">
-                <Link to="/signin" className="text">Submit</Link>
+                Submit
                 </button>
             </form>
             <p>
