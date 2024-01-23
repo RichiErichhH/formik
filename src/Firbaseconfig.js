@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import ReactObserver from 'react-event-observer';
 
 
 const firebaseConfig = {
@@ -15,4 +16,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const firebaseObserver = ReactObserver()
+auth.onAuthStateChanged(function(user) {
+  firebaseObserver.publish("authStateChanged", loggedIn())
+});
+
+export function loggedIn() {
+  return !!auth.currentUser;
+}
+
+
+
 export default auth;
