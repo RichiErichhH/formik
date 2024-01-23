@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import ReactObserver from 'react-event-observer';
 
 
@@ -20,7 +21,7 @@ export const firebaseObserver = ReactObserver()
 auth.onAuthStateChanged(function(user) {
   firebaseObserver.publish("authStateChanged", loggedIn())
 });
-
+export const db = getFirestore(app);
 export function loggedIn() {
   return !!auth.currentUser;
 }
