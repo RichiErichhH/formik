@@ -45,10 +45,10 @@ export default function App() {
         <Route path="/" element={<Formm />} />
         <Route path="/signin" element={<Signin />} />
         <Route
-          path="/signin/home"
+          path="/home"
           element={user ? <Home user={user} /> : <Navigate to="/signin" />}
         />
-        <Route path="/signin/home/signup" element={<Formm />} />
+        {/* <Route path="/signin/home/signup" element={<Formm />} /> */}
       </Routes>
     </Router>
   );

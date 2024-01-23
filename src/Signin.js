@@ -24,7 +24,7 @@ export default function Signin() {
       try {
         await signInWithEmailAndPassword(auth, values.email, values.password);
         action.resetForm();
-        navigate('/signin/home'); 
+        navigate('/home'); 
       } catch (error) {
         console.error('Sign-in error:', error.message);
         action.setErrors({ auth: error.message });

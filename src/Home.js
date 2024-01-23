@@ -16,7 +16,7 @@ export default function Home() {
 
   const handleClick = () => {
    
-    navigate('/signin');
+    navigate('/');
   };
 
   return (
