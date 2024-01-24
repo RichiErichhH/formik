@@ -28,7 +28,8 @@ export default function Formm() {
         await createUserWithEmailAndPassword(
           auth,
           values.email,
-          values.password
+          values.password,
+          notify()
         )
           .then((response) => {
             console.log(response);
@@ -36,18 +37,14 @@ export default function Formm() {
           .catch((err) => {
             console.log(err);
           });
-        notify();
         navigate("/signin");
         action.resetForm();
       },
     });
 
     const notify = () => {
-      if (values && values.name && values.email && values.password) {
-          toast(`Name: ${values.name} \nEmail: ${values.email} \nPassword: ${values.password}`);
-      } else {
-          toast("Registration successful!");
-      }
+      toast.success('Registration successful!');
+      
   };
   
 
@@ -130,10 +127,14 @@ export default function Formm() {
             <ToastContainer
                 position="top-center"
                 autoClose={3000}
-                pauseOnHover
-                draggable
-                closeOnClick
                 hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
             />
             
     </div>
