@@ -200,8 +200,10 @@ export default function Product() {
                           onChange={handlePriceChange}
                           placeholder='update price'
                         />
-                        <button onClick={handleEdit}>Update</button>
-                        <button onClick={handleEditChange}>Cancel</button>
+                        <div className='space-x-2'>
+                        <button onClick={handleEdit} >Update</button>
+                        <button onClick={handleEditChange} >Cancel</button>
+                        </div>
                       </DialogContentText>
             </DialogContent>
           </Dialog>
