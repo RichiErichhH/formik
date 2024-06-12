@@ -37,7 +37,7 @@ export default function Formm() {
           .catch((err) => {
             console.log(err);
           });
-        navigate("/signin");
+        navigate("/Home");
         action.resetForm();
       },
     });
@@ -124,18 +124,7 @@ export default function Formm() {
                 Already have an account?<Link to="/signin">SignIn</Link>
             </p>
             </div>
-            <ToastContainer
-                position="top-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
+           
             
     </div>
     </>

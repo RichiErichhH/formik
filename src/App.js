@@ -29,7 +29,6 @@ export default function App() {
     //       path="/home"
     //       element={user ? <Home user={user} /> : <Navigate to="/signin" />}
     //     />
-    //     {/* <Route path="/signin/home/signup" element={<Formm />} /> */}
     //   </Routes>
     // </Router>
   );
